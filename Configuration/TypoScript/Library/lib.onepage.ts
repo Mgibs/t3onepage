@@ -62,9 +62,25 @@ lib.onepage {
 					orderBy = sorting
 					where = colPos = 0
 				}
-				wrap = <section id="{field:css_id}" class="{field:css_class}">|</section>
+				wrap = <div class="colonne1">|</div>
 				wrap.insertData = 1
 			}
+			20 = CONTENT
+			20 {
+				table = tt_content
+				select {
+					pidInList.field = uid
+					orderBy = sorting
+					where = colPos = 1
+				}
+				stdWrap{
+					wrap = <div class="colonne2">|</div>
+					wrap.insertData = 1
+					required = 1
+				}
+			}
+			wrap =<section id="{field:css_id}" class="{field:css_class}">|</section>
+			wrap.insertData = 1
 		}
 
 		wrap = <main role="main">|</main>
