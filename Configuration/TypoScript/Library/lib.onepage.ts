@@ -79,6 +79,45 @@ lib.onepage {
 					required = 1
 				}
 			}
+			30 = CONTENT
+			30{
+				table = pages
+				select{
+					pidInList.field = uid
+					select.orderBy = sorting
+				}
+				renderObj = COA
+				renderObj{
+					10 = CONTENT
+					10 {
+						table = tt_content
+						select {
+							pidInList.field = uid
+							orderBy = sorting
+							where = colPos = 0
+						}
+						#wrap = <section id="{field:css_id}" class="{field:css_class}">|</section>
+						wrap = <div class="colonne1">|</div>
+						wrap.insertData = 1
+					}
+					20 = CONTENT
+					20 {
+						table = tt_content
+						select {
+							pidInList.field = uid
+							orderBy = sorting
+							where = colPos = 1
+						}
+						stdWrap{
+							wrap = <div class="colonne2">|</div>
+							wrap.insertData = 1
+							required = 1
+						}
+					}
+					wrap = <section id="{field:css_id}" class="subpage {field:css_class}" style="background-image: url({field:image})">|</section>
+					wrap.insertData = 1
+				}
+			}
 			wrap =<section id="{field:css_id}" class="{field:css_class}">|</section>
 			wrap.insertData = 1
 		}
